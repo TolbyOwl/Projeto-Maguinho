@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cl7ixd2ijyyce"
+path="res://.godot/imported/bola de fogo.aseprite-cc81c1d1586284b63a08c25ef6ee6b2d.res"
+
+[deps]
+
+source_file="res://Scripts/bola de fogo.aseprite"
+dest_files=["res://.godot/imported/bola de fogo.aseprite-cc81c1d1586284b63a08c25ef6ee6b2d.res"]
+
+[params]
+
