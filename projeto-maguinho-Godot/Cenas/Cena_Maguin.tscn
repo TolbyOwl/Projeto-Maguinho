@@ -3,8 +3,7 @@
 [ext_resource type="Script" uid="uid://c65lno8wcl52e" path="res://Scripts/script_maguin.gd" id="1_ftfrc"]
 [ext_resource type="Texture2D" uid="uid://bds0v5o8n5f7g" path="res://Personagens/magin_sprite.png" id="1_trndf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftfrc"]
-size = Vector2(26, 54)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ftfrc"]
 
 [node name="Maguin" type="Node2D"]
 
@@ -15,8 +14,8 @@ script = ExtResource("1_ftfrc")
 texture = ExtResource("1_trndf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-1, -5)
-shape = SubResource("RectangleShape2D_ftfrc")
+position = Vector2(-1, 15)
+shape = SubResource("CircleShape2D_ftfrc")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(2, 2)
