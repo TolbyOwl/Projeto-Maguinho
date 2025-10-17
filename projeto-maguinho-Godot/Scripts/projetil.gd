@@ -1,4 +1,13 @@
+pass
+
+class: attack 
+
+attack_damage = float
+attack_modifier = float
+
 extends CharacterBody2D
+
+pass
 
 @export var SPEED = 100
 

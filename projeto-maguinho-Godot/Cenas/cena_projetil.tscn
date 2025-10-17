@@ -21,6 +21,7 @@ animations = [{
 
 [node name="projetil" type="CharacterBody2D"]
 script = ExtResource("1_7esmx")
+SPEED = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_r4a6s")
