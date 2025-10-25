@@ -19,11 +19,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="projetil" type="CharacterBody2D"]
+[node name="projetil" type="Node"]
 script = ExtResource("1_7esmx")
 SPEED = null
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_b52or")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("2_r4a6s")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
@@ -48,13 +55,11 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_b52or")
 
-[node name="shotLife" type="Timer" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 sprite_frames = SubResource("SpriteFrames_7esmx")
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
@@ -73,9 +78,4 @@ metadata/_aseprite_wizard_config_ = {
 "source_uid": -1
 }
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -2)
-shape = SubResource("CircleShape2D_b52or")
-disabled = true
+[node name="shotLife" type="Timer" parent="Area2D"]

@@ -18,7 +18,6 @@ func take_heal(heal:int):
 	barraVida.change_health(+heal)
 
 
-
 func _physics_process(delta: float) -> void:
 	velocity.x =  0
 	velocity.y =  0

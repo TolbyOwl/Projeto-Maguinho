@@ -1,16 +1,9 @@
-pass
-
-class: attack 
-
-attack_damage = float
-attack_modifier = float
-
-extends CharacterBody2D
-
-pass
+extends Area2D
 
 @export var SPEED = 100
+@export var damage = 1
 
+var attack_damage = damage
 var dir : float
 var spawnPos : Vector2
 var spawnRot : float
@@ -29,3 +22,9 @@ func _on_area_2d_body_entered(body):
 
 func _on_shotLife_time_out():
 	queue_free()
+
+func on_hurtbox_entered(body : Node2D):
+	if body is_in_group(inimigo):
+		print ("enemy netered ", body.damage)
+		barraVida.change_health
+		

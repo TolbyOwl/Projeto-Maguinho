@@ -2,4 +2,6 @@ extends Node
 
 class_name water
 
-var modifier = .2
+var fireModifier = 2*damage
+
+var terraModifier = 0.5* damage
