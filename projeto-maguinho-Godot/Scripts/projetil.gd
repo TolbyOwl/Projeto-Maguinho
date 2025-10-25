@@ -1,9 +1,8 @@
-extends Area2D
+extends Node
 
 @export var SPEED = 100
 @export var damage = 1
 
-var attack_damage = damage
 var dir : float
 var spawnPos : Vector2
 var spawnRot : float
