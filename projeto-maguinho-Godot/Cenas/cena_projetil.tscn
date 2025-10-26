@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dru4nx5e87thq"]
+[gd_scene load_steps=6 format=3 uid="uid://dru4nx5e87thq"]
 
-[ext_resource type="Script" uid="uid://c85f4ohs8mbrw" path="res://Scripts/projetil.gd" id="1_7esmx"]
+[ext_resource type="Script" uid="uid://bes4lb2t416c" path="res://Cenas/terra_modifier.gd" id="1_r4a6s"]
+[ext_resource type="Script" uid="uid://bfpyh7h2n8arv" path="res://Scripts/water_modifier.gd" id="2_b52or"]
 [ext_resource type="Texture2D" uid="uid://dweb0cf1mw36k" path="res://Cenas/bola de fogo textura1.png" id="2_r4a6s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b52or"]
@@ -19,11 +20,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="projetil" type="CharacterBody2D"]
-script = ExtResource("1_7esmx")
-SPEED = null
+[node name="projetil" type="Node"]
+script = ExtResource("1_r4a6s")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_b52or")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_b52or")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("2_r4a6s")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
@@ -48,13 +56,11 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_b52or")
 
-[node name="shotLife" type="Timer" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 sprite_frames = SubResource("SpriteFrames_7esmx")
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
@@ -73,9 +79,4 @@ metadata/_aseprite_wizard_config_ = {
 "source_uid": -1
 }
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -2)
-shape = SubResource("CircleShape2D_b52or")
-disabled = true
+[node name="shotLife" type="Timer" parent="Area2D"]
