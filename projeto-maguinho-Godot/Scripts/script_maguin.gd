@@ -18,9 +18,11 @@ func take_heal(heal:int):
 	barraVida.change_health(+heal)
 
 
-func _physics_process(delta: float) -> void:
+
+func _physics_process(_delta: float) -> void:
 	velocity.x =  0
 	velocity.y =  0
+	
 	
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -Velocidade
