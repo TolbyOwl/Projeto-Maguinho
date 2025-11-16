@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://r5ttpxigdych"]
+
+[ext_resource type="Script" uid="uid://co5w2qmpby5a5" path="res://Scripts/Script_Inimigo.gd" id="1_p8p64"]
+[ext_resource type="Texture2D" uid="uid://bl17se4jk608x" path="res://Personagens/Inimigos/inimigo_morceguito-Sheet.png" id="2_fbiib"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1plj"]
+atlas = ExtResource("2_fbiib")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rxap"]
+atlas = ExtResource("2_fbiib")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6taf"]
+atlas = ExtResource("2_fbiib")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fediw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1plj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rxap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6taf")
+}],
+"loop": true,
+"name": &"Voar",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6uvag"]
+radius = 2.0377216
+
+[node name="Morcego" type="Node2D"]
+scale = Vector2(7.8241663, 7.8241663)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_p8p64")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.17328528, 0.17328528)
+sprite_frames = SubResource("SpriteFrames_fediw")
+animation = &"Voar"
+autoplay = "Voar"
+frame_progress = 0.27033713
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.51123655, 0.12780915)
+shape = SubResource("CircleShape2D_6uvag")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

@@ -1,0 +1,167 @@
+[gd_scene load_steps=15 format=3 uid="uid://bxo3lrg8uq53x"]
+
+[ext_resource type="Texture2D" uid="uid://c10f1qylusntb" path="res://Personagens/Elementos de tela/barra_de_vida.png" id="1_f8c47"]
+[ext_resource type="Script" uid="uid://ccshq5pln1lre" path="res://Scripts/Script_Barra_Vida.gd" id="1_unr41"]
+[ext_resource type="Texture2D" uid="uid://biv4uhsl67yw" path="res://Personagens/Elementos de tela/fogo.png" id="3_w2yw3"]
+[ext_resource type="Texture2D" uid="uid://jimcypxtxhm7" path="res://Personagens/Elementos de tela/gelo.png" id="4_ek21c"]
+[ext_resource type="Texture2D" uid="uid://dmejx648sn863" path="res://Personagens/Elementos de tela/escudo.png" id="5_8vcw7"]
+
+[sub_resource type="Animation" id="Animation_t6j0f"]
+resource_name = "1"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(672, 15, 83, 25)]
+}
+
+[sub_resource type="Animation" id="Animation_r33my"]
+resource_name = "2"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(542, 15, 83, 25)]
+}
+
+[sub_resource type="Animation" id="Animation_8ase3"]
+resource_name = "3"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(412, 15, 83, 25)]
+}
+
+[sub_resource type="Animation" id="Animation_3rh7y"]
+resource_name = "4"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(282, 15, 83, 25)]
+}
+
+[sub_resource type="Animation" id="Animation_iue5m"]
+resource_name = "5"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(152, 15, 83, 25)]
+}
+
+[sub_resource type="Animation" id="Animation_2ms0u"]
+resource_name = "6"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(22, 15, 83, 25)]
+}
+
+[sub_resource type="Animation" id="Animation_ssbhi"]
+resource_name = "Morte"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(802, 15, 83, 25)]
+}
+
+[sub_resource type="Animation" id="Animation_nup4l"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r33my"]
+_data = {
+&"1": SubResource("Animation_t6j0f"),
+&"2": SubResource("Animation_r33my"),
+&"3": SubResource("Animation_8ase3"),
+&"4": SubResource("Animation_3rh7y"),
+&"5": SubResource("Animation_iue5m"),
+&"6": SubResource("Animation_2ms0u"),
+&"Morte": SubResource("Animation_ssbhi"),
+&"RESET": SubResource("Animation_nup4l")
+}
+
+[node name="HUD" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_unr41")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(148.52997, 58.749996)
+scale = Vector2(2.8199995, 2.82)
+texture = ExtResource("1_f8c47")
+region_enabled = true
+region_rect = Rect2(672, 15, 83, 25)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_r33my")
+}
+
+[node name="Fogo" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(964, 295)
+scale = Vector2(4.7600007, 4.7600007)
+texture_normal = ExtResource("3_w2yw3")
+
+[node name="Gelo" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(960, 461)
+scale = Vector2(4.7600007, 4.7600007)
+texture_normal = ExtResource("4_ek21c")
+
+[node name="Escudo" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(797.00006, 364)
+scale = Vector2(4.7600007, 4.7600007)
+texture_normal = ExtResource("5_8vcw7")

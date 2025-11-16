@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://die8ir5amfh7k"]
+
+[ext_resource type="Script" uid="uid://co5w2qmpby5a5" path="res://Scripts/Script_Inimigo.gd" id="1_6uvag"]
+[ext_resource type="Texture2D" uid="uid://b8q3lslml6ctg" path="res://Personagens/Thorfinn.png" id="1_m724k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6uvag"]
+
+[node name="Thorfinn" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_6uvag")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(2.842171e-14, 2.3841858e-07)
+scale = Vector2(0.06776796, 0.06780924)
+texture = ExtResource("1_m724k")
+offset = Vector2(118.04987, 58.98901)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_6uvag")

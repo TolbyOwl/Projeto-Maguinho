@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c12c7csv2wyl1"
+path="res://.godot/imported/gelo.aseprite-8b5ebdc8dd900301e7efa770daacc02b.res"
+
+[deps]
+
+source_file="res://Personagens/Elementos de tela/gelo.aseprite"
+dest_files=["res://.godot/imported/gelo.aseprite-8b5ebdc8dd900301e7efa770daacc02b.res"]
+
+[params]
+

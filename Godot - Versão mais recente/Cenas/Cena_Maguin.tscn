@@ -1,0 +1,274 @@
+[gd_scene load_steps=33 format=3 uid="uid://d3w8vb1y00yte"]
+
+[ext_resource type="Script" uid="uid://c65lno8wcl52e" path="res://Scripts/script_maguin.gd" id="1_ftfrc"]
+[ext_resource type="Texture2D" uid="uid://cf5cp4x7p18x4" path="res://Personagens/Maguin/mago_ataqueFogo.png" id="2_d4arh"]
+[ext_resource type="Texture2D" uid="uid://dwbgbu3b8ou3h" path="res://Personagens/Maguin/mago_andando.png" id="2_ftfrc"]
+[ext_resource type="Texture2D" uid="uid://jjn4rj1bp4ht" path="res://Personagens/Maguin/mago_ataqueGelo.png" id="3_oajlo"]
+[ext_resource type="Texture2D" uid="uid://bdto0h6d13wkc" path="res://Personagens/Maguin/mago_morte.png" id="5_gm3rh"]
+[ext_resource type="Texture2D" uid="uid://b0b8fj4g0athj" path="res://Personagens/Maguin/mago_morte_3.png" id="6_cjbru"]
+[ext_resource type="Texture2D" uid="uid://djw3qfwjegfch" path="res://Personagens/Maguin/mago_morte_4.png" id="7_13h3s"]
+[ext_resource type="Texture2D" uid="uid://hpj8645p22ii" path="res://Personagens/Maguin/escudo.png" id="8_cjbru"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm3rh"]
+atlas = ExtResource("2_d4arh")
+region = Rect2(0, 0, 48, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjbru"]
+atlas = ExtResource("2_d4arh")
+region = Rect2(48, 0, 48, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13h3s"]
+atlas = ExtResource("2_d4arh")
+region = Rect2(96, 0, 48, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7tnt"]
+atlas = ExtResource("2_d4arh")
+region = Rect2(144, 0, 48, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5h2y"]
+atlas = ExtResource("3_oajlo")
+region = Rect2(0, 0, 48, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apq53"]
+atlas = ExtResource("3_oajlo")
+region = Rect2(48, 0, 48, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kduw"]
+atlas = ExtResource("3_oajlo")
+region = Rect2(96, 0, 48, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5pj7"]
+atlas = ExtResource("3_oajlo")
+region = Rect2(144, 0, 48, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oajlo"]
+atlas = ExtResource("2_ftfrc")
+region = Rect2(32, 8, 32, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t2qg"]
+atlas = ExtResource("2_ftfrc")
+region = Rect2(96, 8, 32, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdd17"]
+atlas = ExtResource("2_ftfrc")
+region = Rect2(64, 8, 32, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4arh"]
+atlas = ExtResource("2_ftfrc")
+region = Rect2(0, 8, 32, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfulc"]
+atlas = ExtResource("5_gm3rh")
+region = Rect2(0, 0, 32, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd3t8"]
+atlas = ExtResource("5_gm3rh")
+region = Rect2(32, 0, 32, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttli4"]
+atlas = ExtResource("6_cjbru")
+region = Rect2(0, 0, 36, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsuuv"]
+atlas = ExtResource("7_13h3s")
+region = Rect2(0, 0, 96, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xogxr"]
+atlas = ExtResource("2_ftfrc")
+region = Rect2(0, 8, 32, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_trndf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm3rh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjbru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13h3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7tnt")
+}],
+"loop": false,
+"name": &"Ataque_Fogo",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5h2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apq53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kduw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5pj7")
+}],
+"loop": false,
+"name": &"Ataque_Gelo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oajlo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1t2qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdd17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4arh")
+}],
+"loop": true,
+"name": &"Caminhando",
+"speed": 4.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Escudo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfulc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd3t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttli4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsuuv")
+}],
+"loop": false,
+"name": &"Morrendo",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xogxr")
+}],
+"loop": true,
+"name": &"Parado",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ftfrc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y52gs"]
+atlas = ExtResource("8_cjbru")
+region = Rect2(0, 5, 90, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1axk"]
+atlas = ExtResource("8_cjbru")
+region = Rect2(90, 5, 90, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1jmy"]
+atlas = ExtResource("8_cjbru")
+region = Rect2(180, 5, 90, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uivmf"]
+atlas = ExtResource("8_cjbru")
+region = Rect2(270, 5, 90, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xogxr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y52gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1axk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1jmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uivmf")
+}],
+"loop": true,
+"name": &"Escudo",
+"speed": 5.0
+}]
+
+[node name="Maguin" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+z_index = 1
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_ftfrc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(-3, 25.5)
+sprite_frames = SubResource("SpriteFrames_trndf")
+animation = &"Parado"
+offset = Vector2(3, -26)
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"output_section": true,
+"pending_changes": {
+"source": "res://Personagens/Maguin/mago_animacao.aseprite",
+"source_uid": -1
+},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://Personagens/Animações Maguin/mago_animacao.aseprite",
+"source_uid": 4897116162805496378
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 18.5)
+shape = SubResource("CircleShape2D_ftfrc")
+
+[node name="AnimatedSprite_Layer2" type="AnimatedSprite2D" parent="CharacterBody2D"]
+physics_interpolation_mode = 1
+sprite_frames = SubResource("SpriteFrames_xogxr")
+animation = &"Escudo"
+autoplay = "Escudo"
+frame_progress = 0.0065898816
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(2, 2)
+
+[node name="Norte" type="Marker2D" parent="CharacterBody2D"]
+position = Vector2(0, -30)
+
+[node name="Nordeste" type="Marker2D" parent="CharacterBody2D"]
+position = Vector2(25, -22)
+
+[node name="Leste" type="Marker2D" parent="CharacterBody2D"]
+position = Vector2(30, 0)
+
+[node name="Sudeste" type="Marker2D" parent="CharacterBody2D"]
+position = Vector2(25, 22)
+
+[node name="Sul" type="Marker2D" parent="CharacterBody2D"]
+position = Vector2(0, 30)
+
+[node name="Sudoeste" type="Marker2D" parent="CharacterBody2D"]
+position = Vector2(-24, 22)
+
+[node name="Oeste" type="Marker2D" parent="CharacterBody2D"]
+position = Vector2(-29, 0)
+
+[node name="Noroeste" type="Marker2D" parent="CharacterBody2D"]
+position = Vector2(-24, -22)

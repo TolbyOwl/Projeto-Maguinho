@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c7l17mmrk5k56"
+path="res://.godot/imported/fogo.aseprite-7c5fa6512106b02f56a9e49020ad7330.res"
+
+[deps]
+
+source_file="res://Personagens/Elementos de tela/fogo.aseprite"
+dest_files=["res://.godot/imported/fogo.aseprite-7c5fa6512106b02f56a9e49020ad7330.res"]
+
+[params]
+

@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://brn7tphfci0hj"]
+
+[ext_resource type="Script" uid="uid://brlt6k4bpdxfa" path="res://Scripts/Script_Projetil_vP.gd" id="1_7esmx"]
+[ext_resource type="Texture2D" uid="uid://bage4x0j6lpep" path="res://Cenas/bola de fogo textura1.png" id="2_r4a6s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b52or"]
+radius = 7.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7esmx"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Projetil" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_7esmx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_b52or")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(-1, -2)
+rotation = 1.5707964
+texture = ExtResource("2_r4a6s")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"pending_changes": {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "C:/Users/dpeix/Documents/GitHub/Projeto-Maguinho/Sprits_Poderes/bola de fogo.aseprite",
+"source_uid": -1
+}
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_b52or")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_7esmx")
+animation = &"new_animation"
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "C:/Users/dpeix/Documents/GitHub/Projeto-Maguinho/Sprits_Poderes/bola de fogo.aseprite",
+"source_uid": -1
+}
+
+[node name="shotLife" type="Timer" parent="Area2D"]

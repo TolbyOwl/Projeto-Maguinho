@@ -1,0 +1,31 @@
+pass
+
+class: attack 
+
+attack_damage = float
+attack_modifier = float
+
+extends CharacterBody2D
+
+pass
+
+@export var SPEED = 100
+
+var dir : float
+var spawnPos : Vector2
+var spawnRot : float
+
+func _ready():
+	global_position = spawnPos
+	global_rotation = spawnRot
+	
+func _physics_process(delta):
+	velocity = Vector2(0-SPEED).rotated(dir)
+	move_and_slide()
+	
+func _on_area_2d_body_entered(body):
+	print("HIT!!!!")
+	queue_free()
+
+func _on_shotLife_time_out():
+	queue_free()
