@@ -1,21 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://brn7tphfci0hj"]
+[gd_scene load_steps=9 format=3 uid="uid://brn7tphfci0hj"]
 
 [ext_resource type="Script" uid="uid://brlt6k4bpdxfa" path="res://Scripts/Script_Projetil_vP.gd" id="1_7esmx"]
-[ext_resource type="Texture2D" uid="uid://bage4x0j6lpep" path="res://Cenas/bola de fogo textura1.png" id="2_r4a6s"]
+[ext_resource type="Texture2D" uid="uid://de3xmk6owrwq5" path="res://Personagens/Maguin/bola de fogo.png" id="2_7esmx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b52or"]
 radius = 7.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4a6s"]
+atlas = ExtResource("2_7esmx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b52or"]
+atlas = ExtResource("2_7esmx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nhci"]
+atlas = ExtResource("2_7esmx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lo018"]
+atlas = ExtResource("2_7esmx")
+region = Rect2(48, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_7esmx"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4a6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b52or")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nhci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lo018")
+}],
 "loop": true,
 "name": &"default",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -25,44 +48,14 @@ animations = [{
 script = ExtResource("1_7esmx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_b52or")
 disabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(-1, -2)
-rotation = 1.5707964
-texture = ExtResource("2_r4a6s")
-metadata/_aseprite_wizard_interface_config_ = {
-"animation_section": false,
-"layer_section": false,
-"pending_changes": {
-"convert_fps_field": 60.0,
-"convert_ms_field": 16.0,
-"convert_to_fps": false,
-"embed_tex": true,
-"i_mode": 0,
-"keep_anim_length": false,
-"layers": [],
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": false,
-"player": "",
-"scale": "1.0",
-"slice": "",
-"source": "C:/Users/dpeix/Documents/GitHub/Projeto-Maguinho/Sprits_Poderes/bola de fogo.aseprite",
-"source_uid": -1
-}
-}
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -2)
-shape = SubResource("CircleShape2D_b52or")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(-1, 0)
+rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_7esmx")
-animation = &"new_animation"
+autoplay = "default"
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }

@@ -94,7 +94,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Ataque_Fogo",
-"speed": 4.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -111,7 +111,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Ataque_Gelo",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -196,7 +196,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Escudo",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="Maguin" type="Node2D"]
@@ -208,9 +208,9 @@ collision_mask = 3
 script = ExtResource("1_ftfrc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(-3, 25.5)
+position = Vector2(-2, 24.5)
 sprite_frames = SubResource("SpriteFrames_trndf")
-animation = &"Parado"
+animation = &"Ataque_Gelo"
 offset = Vector2(3, -26)
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": true,

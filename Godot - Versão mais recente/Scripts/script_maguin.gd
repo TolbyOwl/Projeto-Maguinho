@@ -46,7 +46,7 @@ func _processar_animacao():
 		Maguin_Animations.position.x = -9 if Maguin_Animations.flip_h == true else 3
 		_invocar_projetil(direction)
 
-	if Maguin_Animations.animation == "Ataque_Fogo":
+	if Maguin_Animations.animation == "Ataque_Fogo" and Maguin_Animations.is_playing():
 		velocity.x = 0
 		velocity.y = 0
 	else:
