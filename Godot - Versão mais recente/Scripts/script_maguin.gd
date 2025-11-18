@@ -83,7 +83,7 @@ func _obter_direcao(delta):
 		direction = direction.normalized()
 
 func _invocar_projetil(direction):
-	var cena_projetil = preload("res://Cenas/cena_projetil.tscn")
+	var cena_projetil = preload("res://Cenas/Cena_Projetil_Fogo.tscn")
 	var objeto_projetil = cena_projetil.instantiate()
 	
 	if objeto_projetil:

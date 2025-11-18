@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://die8ir5amfh7k"]
 
-[ext_resource type="Script" uid="uid://co5w2qmpby5a5" path="res://Scripts/Script_Inimigo.gd" id="1_qnb8r"]
+[ext_resource type="Script" uid="uid://co5w2qmpby5a5" path="res://Scripts/Script_Inimigo_Morcego.gd" id="1_qnb8r"]
 [ext_resource type="Texture2D" uid="uid://bl17se4jk608x" path="res://Personagens/Inimigos/inimigo_morceguito-Sheet.png" id="2_ni774"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6uvag"]
@@ -45,11 +45,19 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_qnb8r")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.6390457, 0.12780914)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("CircleShape2D_6uvag")
+
 [node name="Area2D" type="Area2D" parent="CharacterBody2D"]
 scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
-position = Vector2(-0.5112364, 0.12780917)
+position = Vector2(-0.6390458, 0.12780915)
+scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("CircleShape2D_6uvag")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
@@ -66,4 +74,5 @@ debug_enabled = true
 wait_time = 0.1
 autostart = true
 
+[connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_levar_dano"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

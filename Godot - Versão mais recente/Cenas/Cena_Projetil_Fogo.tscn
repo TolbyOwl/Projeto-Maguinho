@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://brn7tphfci0hj"]
+
+[ext_resource type="Script" uid="uid://brlt6k4bpdxfa" path="res://Scripts/Script_Projetil_BolaDeFogo.gd" id="1_vxue4"]
+[ext_resource type="Texture2D" uid="uid://de3xmk6owrwq5" path="res://Personagens/Maguin/bola de fogo.png" id="2_oysif"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b52or"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4a6s"]
+atlas = ExtResource("2_oysif")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b52or"]
+atlas = ExtResource("2_oysif")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nhci"]
+atlas = ExtResource("2_oysif")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lo018"]
+atlas = ExtResource("2_oysif")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7esmx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4a6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b52or")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nhci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lo018")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bola_Fogo" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="." groups=["Fogo"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_vxue4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_b52or")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(-1, 0)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_7esmx")
+autoplay = "default"
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "C:/Users/dpeix/Documents/GitHub/Projeto-Maguinho/Sprits_Poderes/bola de fogo.aseprite",
+"source_uid": -1
+}
+
+[node name="Tempo_Vida" type="Timer" parent="Area2D"]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Area2D/Tempo_Vida" to="Area2D" method="_auto_destruir"]

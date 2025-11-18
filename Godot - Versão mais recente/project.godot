@@ -26,6 +26,7 @@ enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
 [global_group]
 
 inimigo="Grupo de personagens que são hostis"
+Fogo=""
 
 [input]
 
