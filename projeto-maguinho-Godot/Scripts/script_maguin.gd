@@ -8,6 +8,7 @@ var health = 10
 
 func _ready():
 	barraVida.set_health_bar(health, maxHealth)
+
 func take_damage(damage:int):
 	health -= damage
 	if health < 0: health = 0

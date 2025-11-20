@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://d2uc0ldr1jcrj"]
+[gd_scene load_steps=8 format=4 uid="uid://d2uc0ldr1jcrj"]
 
 [ext_resource type="Texture2D" uid="uid://b3h0u6oxdmuii" path="res://Mapas/tile set 2.png" id="1_vl4jq"]
 [ext_resource type="Texture2D" uid="uid://cqsqla5pgv23q" path="res://Mapas/Mapa 1 TS V2.png" id="2_e1tr0"]
 [ext_resource type="PackedScene" uid="uid://d3w8vb1y00yte" path="res://Cenas/Cena_Maguin.tscn" id="2_eqpqa"]
+[ext_resource type="PackedScene" uid="uid://dy882anma5np4" path="res://Cenas/menu_de_pause.tscn" id="4_b13h8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v4p2o"]
 texture = ExtResource("1_vl4jq")
@@ -141,3 +142,7 @@ build_mode = 1
 polygon = PackedVector2Array(-308, -37, -310, 37, -199, 39, -196, 70, -166, 70, -165, 150, -71, 151, -68, 178, 0, 180, 403, 180, 404, -17, 404, -165, 377, -168, 375, -195, -38, -195, -38, -169, -68, -164, -70, -160, -72, -138, -95, -136, -100, -132, -103, -104, -127, -101, -134, -98, -135, -73, -158, -73, -168, -64, -168, -40, -188, -37)
 
 [node name="Maguin" parent="." instance=ExtResource("2_eqpqa")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Maguin"]
+
+[node name="menu de pause" parent="Maguin" instance=ExtResource("4_b13h8")]
