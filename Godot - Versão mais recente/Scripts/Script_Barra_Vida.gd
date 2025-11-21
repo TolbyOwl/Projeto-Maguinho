@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var Status = $AnimationPlayer
+@onready var Placar = $Pontuacao
 
 func _process(delta: float) -> void:
 	match ScriptGlobal.Vida:
@@ -18,4 +19,5 @@ func _process(delta: float) -> void:
 			Status.play("6")
 		0:
 			Status.play("Morte")
-			
+	
+	Placar.text = str(ScriptGlobal.Pontos)

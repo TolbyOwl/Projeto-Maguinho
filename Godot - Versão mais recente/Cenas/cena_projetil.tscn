@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://brn7tphfci0hj"]
 
 [ext_resource type="Script" uid="uid://brlt6k4bpdxfa" path="res://Scripts/Script_Projetil_vP.gd" id="1_7esmx"]
-[ext_resource type="Texture2D" uid="uid://de3xmk6owrwq5" path="res://Personagens/Maguin/bola de fogo.png" id="2_7esmx"]
+[ext_resource type="Texture2D" uid="uid://de3xmk6owrwq5" path="res://Personagens e Outros Assets/Maguin/bola de fogo.png" id="2_7esmx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b52or"]
 radius = 7.0

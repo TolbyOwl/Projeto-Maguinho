@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://r5ttpxigdych"]
 
 [ext_resource type="Script" uid="uid://co5w2qmpby5a5" path="res://Scripts/Script_Inimigo_Morcego.gd" id="1_p8p64"]
-[ext_resource type="Texture2D" uid="uid://bl17se4jk608x" path="res://Personagens/Inimigos/inimigo_morceguito-Sheet.png" id="2_fbiib"]
+[ext_resource type="Texture2D" uid="uid://bl17se4jk608x" path="res://Personagens e Outros Assets/Inimigos/inimigo_morceguito-Sheet.png" id="2_fbiib"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v1plj"]
 atlas = ExtResource("2_fbiib")

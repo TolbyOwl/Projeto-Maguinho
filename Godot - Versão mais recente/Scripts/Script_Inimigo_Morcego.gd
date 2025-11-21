@@ -9,7 +9,9 @@ func _ready() -> void:
 	call_deferred("encontre_alvo")
 
 func _physics_process(delta: float) -> void:
-	if vida == 0:
+	if vida <= 0:
+		ScriptGlobal.Bats -= 1
+		ScriptGlobal.Pontos += 1
 		get_parent().queue_free()
 	if Alvo:
 		GPS.target_position = Alvo.global_position

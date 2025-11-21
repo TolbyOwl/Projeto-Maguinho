@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bxo3lrg8uq53x"]
+[gd_scene load_steps=16 format=3 uid="uid://bxo3lrg8uq53x"]
 
-[ext_resource type="Texture2D" uid="uid://c10f1qylusntb" path="res://Personagens/Elementos de tela/barra_de_vida.png" id="1_f8c47"]
+[ext_resource type="Texture2D" uid="uid://c10f1qylusntb" path="res://Personagens e Outros Assets/Elementos de tela/barra_de_vida.png" id="1_f8c47"]
 [ext_resource type="Script" uid="uid://ccshq5pln1lre" path="res://Scripts/Script_Barra_Vida.gd" id="1_unr41"]
-[ext_resource type="Texture2D" uid="uid://biv4uhsl67yw" path="res://Personagens/Elementos de tela/fogo.png" id="3_w2yw3"]
-[ext_resource type="Texture2D" uid="uid://jimcypxtxhm7" path="res://Personagens/Elementos de tela/gelo.png" id="4_ek21c"]
-[ext_resource type="Texture2D" uid="uid://dmejx648sn863" path="res://Personagens/Elementos de tela/escudo.png" id="5_8vcw7"]
+[ext_resource type="Texture2D" uid="uid://biv4uhsl67yw" path="res://Personagens e Outros Assets/Elementos de tela/fogo.png" id="3_w2yw3"]
+[ext_resource type="Texture2D" uid="uid://jimcypxtxhm7" path="res://Personagens e Outros Assets/Elementos de tela/gelo.png" id="4_ek21c"]
+[ext_resource type="Texture2D" uid="uid://dmejx648sn863" path="res://Personagens e Outros Assets/Elementos de tela/escudo.png" id="5_8vcw7"]
+[ext_resource type="Texture2D" uid="uid://bai3hwlwajepf" path="res://Personagens e Outros Assets/Elementos de tela/Direção.png" id="6_n8l2x"]
 
 [sub_resource type="Animation" id="Animation_t6j0f"]
 resource_name = "1"
@@ -139,7 +140,7 @@ _data = {
 script = ExtResource("1_unr41")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(148.52997, 58.749996)
+position = Vector2(148.52997, 49)
 scale = Vector2(2.8199995, 2.82)
 texture = ExtResource("1_f8c47")
 region_enabled = true
@@ -155,13 +156,66 @@ libraries = {
 position = Vector2(964, 295)
 scale = Vector2(4.7600007, 4.7600007)
 texture_normal = ExtResource("3_w2yw3")
+action = "Key_e"
 
 [node name="Gelo" type="TouchScreenButton" parent="CanvasLayer"]
 position = Vector2(960, 461)
 scale = Vector2(4.7600007, 4.7600007)
 texture_normal = ExtResource("4_ek21c")
+action = "Key_q"
 
 [node name="Escudo" type="TouchScreenButton" parent="CanvasLayer"]
 position = Vector2(797.00006, 364)
 scale = Vector2(4.7600007, 4.7600007)
 texture_normal = ExtResource("5_8vcw7")
+
+[node name="Up" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(145, 415.00003)
+rotation = -1.5707964
+scale = Vector2(2.5548933, 2.5548933)
+texture_normal = ExtResource("6_n8l2x")
+action = "ui_up"
+
+[node name="Down" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(227.00002, 460.00003)
+rotation = 1.5707964
+scale = Vector2(2.5548933, 2.5548933)
+texture_normal = ExtResource("6_n8l2x")
+action = "ui_down"
+
+[node name="Left" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(145.00002, 483.00003)
+rotation = 3.1415927
+scale = Vector2(2.5548933, 2.5548933)
+texture_normal = ExtResource("6_n8l2x")
+action = "ui_left"
+
+[node name="Right" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(226.00002, 402.00003)
+scale = Vector2(2.5548933, 2.5548933)
+texture_normal = ExtResource("6_n8l2x")
+action = "ui_right"
+
+[node name="Label_Pontos" type="Label" parent="CanvasLayer"]
+z_index = 1
+offset_left = 849.00006
+offset_top = 30.999998
+offset_right = 929.00006
+offset_bottom = 62.0
+scale = Vector2(1.4799997, 1.4528624)
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Pontos:"
+
+[node name="Pontuacao" type="Label" parent="CanvasLayer"]
+z_index = 1
+offset_left = 983.00006
+offset_top = 30.000002
+offset_right = 1063.0
+offset_bottom = 61.000008
+scale = Vector2(1.4799997, 1.4528624)
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "-"

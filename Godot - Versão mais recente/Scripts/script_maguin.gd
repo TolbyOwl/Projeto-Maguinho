@@ -42,11 +42,18 @@ func _processar_movimento():
 func _processar_animacao():
 
 	if Input.is_action_just_pressed("Key_e"):
+		var cena_projetil = preload("res://Cenas/Cena_Projetil_Fogo.tscn")
 		Maguin_Animations.play("Ataque_Fogo")
 		Maguin_Animations.position.x = -9 if Maguin_Animations.flip_h == true else 3
-		_invocar_projetil(direction)
+		_invocar_projetil(direction, cena_projetil)
 
-	if Maguin_Animations.animation == "Ataque_Fogo" and Maguin_Animations.is_playing():
+	if Input.is_action_just_pressed("Key_q"):
+		var cena_projetil = preload("res://Cenas/Cena_Projetil_Gelo.tscn")
+		Maguin_Animations.play("Ataque_Fogo")
+		Maguin_Animations.position.x = -9 if Maguin_Animations.flip_h == true else 3
+		_invocar_projetil(direction, cena_projetil)
+
+	if (Maguin_Animations.animation == "Ataque_Fogo" or Maguin_Animations.animation == "Ataque_Gelo") and Maguin_Animations.is_playing():
 		velocity.x = 0
 		velocity.y = 0
 	else:
@@ -82,8 +89,7 @@ func _obter_direcao(delta):
 	if direction.length() > 0:
 		direction = direction.normalized()
 
-func _invocar_projetil(direction):
-	var cena_projetil = preload("res://Cenas/Cena_Projetil_Fogo.tscn")
+func _invocar_projetil(direction, cena_projetil):
 	var objeto_projetil = cena_projetil.instantiate()
 	
 	if objeto_projetil:
@@ -92,7 +98,6 @@ func _invocar_projetil(direction):
 		
 		match marker:
 			[0,-1]:
-				print("Norte")
 				objeto_projetil.global_position = $Norte.global_position
 			[1,-1]:
 				objeto_projetil.global_position = $Nordeste.global_position
