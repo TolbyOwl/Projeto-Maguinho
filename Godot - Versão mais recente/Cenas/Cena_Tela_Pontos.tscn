@@ -8,11 +8,22 @@
 script = ExtResource("1_ix5ef")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1
 offset_left = 216.0
 offset_top = 78.0
 offset_right = 950.0
 offset_bottom = 588.0
 color = Color(0.42524344, 0.27983797, 0.5171211, 0.89411765)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+z_index = -1
+layout_mode = 0
+offset_left = -214.0
+offset_top = -80.0
+offset_right = -174.0
+offset_bottom = -40.0
+scale = Vector2(28.639997, 16.279995)
+color = Color(0.71455765, 0.40018785, 0.33003333, 1)
 
 [node name="Button" type="Button" parent="ColorRect"]
 layout_mode = 0
@@ -58,10 +69,12 @@ scale = Vector2(0.72, 1)
 theme_override_font_sizes/font_size = 32
 
 [node name="Bola_Gelo" parent="." instance=ExtResource("2_l6cqe")]
+z_index = 2
 position = Vector2(47, 24)
 scale = Vector2(2.6000001, 2.6000001)
 
 [node name="Bola_Fogo" parent="." instance=ExtResource("3_u3sch")]
+z_index = 2
 position = Vector2(47, 78.00001)
 scale = Vector2(2.6000001, 2.6000001)
 

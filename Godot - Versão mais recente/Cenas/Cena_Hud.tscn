@@ -1,11 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://bxo3lrg8uq53x"]
+[gd_scene load_steps=28 format=3 uid="uid://bxo3lrg8uq53x"]
 
 [ext_resource type="Texture2D" uid="uid://c10f1qylusntb" path="res://Personagens e Outros Assets/Elementos de tela/barra_de_vida.png" id="1_f8c47"]
 [ext_resource type="Script" uid="uid://ccshq5pln1lre" path="res://Scripts/Script_Barra_Vida.gd" id="1_unr41"]
 [ext_resource type="Texture2D" uid="uid://biv4uhsl67yw" path="res://Personagens e Outros Assets/Elementos de tela/fogo.png" id="3_w2yw3"]
 [ext_resource type="Texture2D" uid="uid://jimcypxtxhm7" path="res://Personagens e Outros Assets/Elementos de tela/gelo.png" id="4_ek21c"]
 [ext_resource type="Texture2D" uid="uid://dmejx648sn863" path="res://Personagens e Outros Assets/Elementos de tela/escudo.png" id="5_8vcw7"]
-[ext_resource type="Texture2D" uid="uid://bai3hwlwajepf" path="res://Personagens e Outros Assets/Elementos de tela/Direção.png" id="6_n8l2x"]
+[ext_resource type="Texture2D" uid="uid://hpj8645p22ii" path="res://Personagens e Outros Assets/Maguin/escudo.png" id="7_e5xgc"]
+[ext_resource type="PackedScene" uid="uid://btf0iccai10qr" path="res://addons/versatile-mobile-joystick/joystick.tscn" id="8_m3yfa"]
+[ext_resource type="Texture2D" uid="uid://b3rjj1bmqtiok" path="res://addons/versatile-mobile-joystick/default_textures/BaseJoystickTest.png" id="9_suuk0"]
+[ext_resource type="Texture2D" uid="uid://dlgmq4q7t23o8" path="res://addons/versatile-mobile-joystick/default_textures/TipJoystickTest.png" id="10_1bktk"]
 
 [sub_resource type="Animation" id="Animation_t6j0f"]
 resource_name = "1"
@@ -134,6 +137,55 @@ _data = {
 &"RESET": SubResource("Animation_nup4l")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_08ljg"]
+atlas = ExtResource("7_e5xgc")
+region = Rect2(0, 0, 90, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63vfi"]
+atlas = ExtResource("7_e5xgc")
+region = Rect2(90, 0, 90, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3yfa"]
+atlas = ExtResource("7_e5xgc")
+region = Rect2(180, 0, 90, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suuk0"]
+atlas = ExtResource("7_e5xgc")
+region = Rect2(270, 0, 90, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bktk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08ljg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63vfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3yfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suuk0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6akhe"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m3yfa"]
+radius = 50.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_suuk0"]
+size = Vector2(100, 100)
+
+[sub_resource type="Curve" id="Curve_1bktk"]
+_data = [Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
 [node name="HUD" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -157,44 +209,21 @@ position = Vector2(964, 295)
 scale = Vector2(4.7600007, 4.7600007)
 texture_normal = ExtResource("3_w2yw3")
 action = "Key_e"
+visibility_mode = 1
 
 [node name="Gelo" type="TouchScreenButton" parent="CanvasLayer"]
 position = Vector2(960, 461)
 scale = Vector2(4.7600007, 4.7600007)
 texture_normal = ExtResource("4_ek21c")
 action = "Key_q"
+visibility_mode = 1
 
 [node name="Escudo" type="TouchScreenButton" parent="CanvasLayer"]
 position = Vector2(797.00006, 364)
 scale = Vector2(4.7600007, 4.7600007)
 texture_normal = ExtResource("5_8vcw7")
-
-[node name="Up" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(145, 415.00003)
-rotation = -1.5707964
-scale = Vector2(2.5548933, 2.5548933)
-texture_normal = ExtResource("6_n8l2x")
-action = "ui_up"
-
-[node name="Down" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(227.00002, 460.00003)
-rotation = 1.5707964
-scale = Vector2(2.5548933, 2.5548933)
-texture_normal = ExtResource("6_n8l2x")
-action = "ui_down"
-
-[node name="Left" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(145.00002, 483.00003)
-rotation = 3.1415927
-scale = Vector2(2.5548933, 2.5548933)
-texture_normal = ExtResource("6_n8l2x")
-action = "ui_left"
-
-[node name="Right" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(226.00002, 402.00003)
-scale = Vector2(2.5548933, 2.5548933)
-texture_normal = ExtResource("6_n8l2x")
-action = "ui_right"
+action = "Key_w"
+visibility_mode = 1
 
 [node name="Label_Pontos" type="Label" parent="CanvasLayer"]
 z_index = 1
@@ -219,3 +248,31 @@ theme_type_variation = &"GraphFrameTitleLabel"
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "-"
+
+[node name="Icone_Escudo" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(312.25, 57.250004)
+scale = Vector2(0.8522223, 0.8522223)
+sprite_frames = SubResource("SpriteFrames_1bktk")
+autoplay = "default"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 87.99999
+offset_top = -318.9999
+offset_right = 127.99999
+offset_bottom = -278.9999
+grow_vertical = 0
+scale = Vector2(6.880001, 6.880001)
+
+[node name="JoystickController" parent="CanvasLayer/VBoxContainer" instance=ExtResource("8_m3yfa")]
+position = Vector2(19.476742, 19.91277)
+scale = Vector2(0.39534867, 0.39534867)
+base_texture = ExtResource("9_suuk0")
+tip_texture = ExtResource("10_1bktk")
+deadzone_circle = SubResource("CircleShape2D_6akhe")
+tip_limit_circle = SubResource("CircleShape2D_m3yfa")
+touch_detection_region = SubResource("RectangleShape2D_suuk0")
+strength_curve = SubResource("Curve_1bktk")
+is_mobile_only = true

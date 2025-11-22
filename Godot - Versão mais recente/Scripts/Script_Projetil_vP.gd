@@ -6,6 +6,8 @@ var direcao = Vector2.RIGHT
 func _ready() -> void:
 	if get_parent().get_parent().name == "Tela_Pontos":
 		$Tempo_Vida.start(15.0)
+	else:
+		$"../FX".play()
 
 func _process(delta: float) -> void:
 	global_position += velocidade_p * direcao * delta

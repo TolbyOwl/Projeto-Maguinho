@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://brn7tphfci0hj"]
+[gd_scene load_steps=10 format=3 uid="uid://brn7tphfci0hj"]
 
 [ext_resource type="Script" uid="uid://brlt6k4bpdxfa" path="res://Scripts/Script_Projetil_vP.gd" id="1_vxue4"]
 [ext_resource type="Texture2D" uid="uid://de3xmk6owrwq5" path="res://Personagens e Outros Assets/Maguin/bola de fogo.png" id="2_oysif"]
+[ext_resource type="AudioStream" uid="uid://y6ng4jamiah4" path="res://SFX/FireBall.wav" id="3_oysif"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b52or"]
 radius = 7.0
@@ -42,7 +43,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bola_Fogo" type="Node2D"]
+[node name="Bola_Fogo" type="Node2D" groups=["Fogo"]]
 
 [node name="Area2D" type="Area2D" parent="." groups=["Fogo"]]
 collision_layer = 2
@@ -77,5 +78,9 @@ metadata/_aseprite_wizard_config_ = {
 [node name="Tempo_Vida" type="Timer" parent="Area2D"]
 wait_time = 2.0
 autostart = true
+
+[node name="FX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_oysif")
+volume_db = -10.0
 
 [connection signal="timeout" from="Area2D/Tempo_Vida" to="Area2D" method="_auto_destruir"]

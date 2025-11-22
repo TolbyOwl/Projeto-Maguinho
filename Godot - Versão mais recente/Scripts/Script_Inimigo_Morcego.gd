@@ -10,6 +10,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if vida <= 0:
+		$Morrendo.play()
 		ScriptGlobal.Bats -= 1
 		ScriptGlobal.Pontos += 1
 		get_parent().queue_free()
@@ -26,9 +27,25 @@ func encontre_alvo() -> void:
 		GPS.target_position = Alvo.global_position
 
 func _levar_dano(area:Node2D)->void:
-	if (area.is_in_group("Fogo")):
-		vida-=3
-		area.get_parent().queue_free()
-	if (area.is_in_group("Gelo")):
-		vida-=1
-		area.get_parent().queue_free()
+	#Tabela de dano para inimigos sem tipo
+	if get_parent().is_in_group("Fisico"):
+		if (area.is_in_group("Fogo")):
+			vida-=3
+			area.get_parent().queue_free()
+		if (area.is_in_group("Gelo")):
+			vida-=3
+			area.get_parent().queue_free()
+	#Tabela de dano para inimigos fracos contra Fogo
+	if get_parent().is_in_group("Gelo"):
+		if (area.is_in_group("Fogo")):
+			vida-=3
+			area.get_parent().queue_free()
+		if (area.is_in_group("Gelo")):
+			area.get_parent().queue_free()
+	#Tabela de dano para inimigos de Fogo
+	if get_parent().is_in_group("Fogo"):
+		if (area.is_in_group("Fogo")):
+			area.get_parent().queue_free()
+		if (area.is_in_group("Gelo")):
+			vida-=3
+			area.get_parent().queue_free()

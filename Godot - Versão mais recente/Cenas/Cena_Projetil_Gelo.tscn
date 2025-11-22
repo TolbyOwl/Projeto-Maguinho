@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ktbgkhivu5ob"]
+[gd_scene load_steps=11 format=3 uid="uid://ktbgkhivu5ob"]
 
 [ext_resource type="Script" uid="uid://brlt6k4bpdxfa" path="res://Scripts/Script_Projetil_vP.gd" id="1_maje5"]
 [ext_resource type="Texture2D" uid="uid://dt3ty571yai4j" path="res://Personagens e Outros Assets/Maguin/ataque_gelo.png" id="2_maje5"]
+[ext_resource type="AudioStream" uid="uid://8cfakokpx8vi" path="res://SFX/Gelo.wav" id="3_1r0gv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b52or"]
 radius = 7.0
@@ -49,7 +50,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bola_Gelo" type="Node2D"]
+[node name="Bola_Gelo" type="Node2D" groups=["Gelo"]]
 
 [node name="Area2D" type="Area2D" parent="." groups=["Gelo"]]
 collision_layer = 2
@@ -83,5 +84,9 @@ metadata/_aseprite_wizard_config_ = {
 [node name="Tempo_Vida" type="Timer" parent="Area2D"]
 wait_time = 2.0
 autostart = true
+
+[node name="FX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1r0gv")
+volume_db = -10.0
 
 [connection signal="timeout" from="Area2D/Tempo_Vida" to="Area2D" method="_auto_destruir"]

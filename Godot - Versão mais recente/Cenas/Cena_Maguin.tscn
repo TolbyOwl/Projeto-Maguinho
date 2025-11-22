@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d3w8vb1y00yte"]
+[gd_scene load_steps=39 format=3 uid="uid://d3w8vb1y00yte"]
 
 [ext_resource type="Script" uid="uid://c65lno8wcl52e" path="res://Scripts/script_maguin.gd" id="1_ftfrc"]
 [ext_resource type="Texture2D" uid="uid://cf5cp4x7p18x4" path="res://Personagens e Outros Assets/Maguin/mago_ataqueFogo.png" id="2_d4arh"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b0b8fj4g0athj" path="res://Personagens e Outros Assets/Maguin/mago_morte_3.png" id="6_cjbru"]
 [ext_resource type="Texture2D" uid="uid://djw3qfwjegfch" path="res://Personagens e Outros Assets/Maguin/mago_morte_4.png" id="7_13h3s"]
 [ext_resource type="Texture2D" uid="uid://hpj8645p22ii" path="res://Personagens e Outros Assets/Maguin/escudo.png" id="8_cjbru"]
+[ext_resource type="AudioStream" uid="uid://byd5gri440s1a" path="res://SFX/Escudo.wav" id="10_w7tnt"]
+[ext_resource type="AudioStream" uid="uid://cs08fp4rdtcuo" path="res://SFX/EscudoQuebrado.wav" id="11_d5h2y"]
+[ext_resource type="AudioStream" uid="uid://bcmyt6tes6hvg" path="res://SFX/Morte.wav" id="12_apq53"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gm3rh"]
 atlas = ExtResource("2_d4arh")
@@ -182,6 +185,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ftfrc"]
+radius = 11.011357
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y52gs"]
 atlas = ExtResource("8_cjbru")
@@ -259,12 +263,35 @@ metadata/_aseprite_wizard_config_ = {
 position = Vector2(0, 18.5)
 shape = SubResource("CircleShape2D_ftfrc")
 
+[node name="Collision_Escudo" type="CollisionPolygon2D" parent="CharacterBody2D"]
+scale = Vector2(2.8763006, 2.8763006)
+build_mode = 1
+polygon = PackedVector2Array(0, 2.0000017, 8.666674, 5.333338, 5.0000043, 9.000008, 0, 10.000009, -5.6666713, 8.666674, -8.666674, 4.666671)
+
 [node name="AnimatedSprite_Layer2" type="AnimatedSprite2D" parent="CharacterBody2D"]
 physics_interpolation_mode = 1
 sprite_frames = SubResource("SpriteFrames_xogxr")
 animation = &"Escudo"
 autoplay = "Escudo"
 frame_progress = 0.0065898816
+
+[node name="Escudo_Ativando" type="AudioStreamPlayer" parent="CharacterBody2D/AnimatedSprite_Layer2"]
+stream = ExtResource("10_w7tnt")
+volume_db = -10.0
+
+[node name="Escudo_Quebrando" type="AudioStreamPlayer" parent="CharacterBody2D/AnimatedSprite_Layer2"]
+stream = ExtResource("11_d5h2y")
+volume_db = -10.0
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D/AnimatedSprite_Layer2"]
+scale = Vector2(2.9999976, 2.9999976)
+disable_mode = 2
+collision_mask = 15
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D/AnimatedSprite_Layer2/Area2D"]
+scale = Vector2(1.0127203, 1.0127203)
+build_mode = 1
+polygon = PackedVector2Array(0, 2.0000017, 8.666674, 5.333338, 5.0000043, 9.000008, 0, 10.000009, -5.6666713, 8.666674, -8.666674, 4.666671)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(2, 2)
@@ -292,3 +319,23 @@ position = Vector2(-29, 0)
 
 [node name="Noroeste" type="Marker2D" parent="CharacterBody2D"]
 position = Vector2(-24, -22)
+
+[node name="Recarregar_escudo" type="Timer" parent="CharacterBody2D"]
+wait_time = 4.0
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(0, 18.000002)
+scale = Vector2(1.061237, 1.061237)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+shape = SubResource("CircleShape2D_ftfrc")
+
+[node name="Morrendo" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("12_apq53")
+volume_db = -15.0
+
+[connection signal="body_entered" from="CharacterBody2D/AnimatedSprite_Layer2/Area2D" to="CharacterBody2D" method="_escudo_danificado"]
+[connection signal="timeout" from="CharacterBody2D/Recarregar_escudo" to="CharacterBody2D" method="_recarregar_escudo"]
+[connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_levar_dano"]

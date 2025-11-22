@@ -21,3 +21,9 @@ func _process(delta: float) -> void:
 			Status.play("Morte")
 	
 	Placar.text = str(ScriptGlobal.Pontos)
+	
+	#Definir se mostra o mini escudo no topo 
+	if ScriptGlobal.Vida_Escudo == 1:
+		$Icone_Escudo.visible = true
+	else:
+		$Icone_Escudo.visible = false

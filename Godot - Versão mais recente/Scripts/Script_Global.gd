@@ -2,6 +2,7 @@ extends Node
 
 var Maguin1 = null
 var Vida = null
+var Vida_Escudo = 0
 var Pontos = 0
 var Bats = 0
 var Too_many_bats = false
