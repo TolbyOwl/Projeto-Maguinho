@@ -174,13 +174,12 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6akhe"]
-radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m3yfa"]
-radius = 50.0
+radius = 90.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_suuk0"]
-size = Vector2(100, 100)
+size = Vector2(200, 200)
 
 [sub_resource type="Curve" id="Curve_1bktk"]
 _data = [Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -203,27 +202,6 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_r33my")
 }
-
-[node name="Fogo" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(964, 295)
-scale = Vector2(4.7600007, 4.7600007)
-texture_normal = ExtResource("3_w2yw3")
-action = "Key_e"
-visibility_mode = 1
-
-[node name="Gelo" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(960, 461)
-scale = Vector2(4.7600007, 4.7600007)
-texture_normal = ExtResource("4_ek21c")
-action = "Key_q"
-visibility_mode = 1
-
-[node name="Escudo" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(797.00006, 364)
-scale = Vector2(4.7600007, 4.7600007)
-texture_normal = ExtResource("5_8vcw7")
-action = "Key_w"
-visibility_mode = 1
 
 [node name="Label_Pontos" type="Label" parent="CanvasLayer"]
 z_index = 1
@@ -255,20 +233,20 @@ scale = Vector2(0.8522223, 0.8522223)
 sprite_frames = SubResource("SpriteFrames_1bktk")
 autoplay = "default"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="VBoxContainer_joystick" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 87.99999
-offset_top = -318.9999
-offset_right = 127.99999
-offset_bottom = -278.9999
+offset_left = 2.0000005
+offset_top = -544.0
+offset_right = 42.0
+offset_bottom = -504.0
 grow_vertical = 0
-scale = Vector2(6.880001, 6.880001)
+scale = Vector2(13.556427, 13.556427)
 
-[node name="JoystickController" parent="CanvasLayer/VBoxContainer" instance=ExtResource("8_m3yfa")]
-position = Vector2(19.476742, 19.91277)
-scale = Vector2(0.39534867, 0.39534867)
+[node name="JoystickController" parent="CanvasLayer/VBoxContainer_joystick" instance=ExtResource("8_m3yfa")]
+position = Vector2(19.990517, 20.064274)
+scale = Vector2(0.20064276, 0.20064276)
 base_texture = ExtResource("9_suuk0")
 tip_texture = ExtResource("10_1bktk")
 deadzone_circle = SubResource("CircleShape2D_6akhe")
@@ -276,3 +254,38 @@ tip_limit_circle = SubResource("CircleShape2D_m3yfa")
 touch_detection_region = SubResource("RectangleShape2D_suuk0")
 strength_curve = SubResource("Curve_1bktk")
 is_mobile_only = true
+
+[node name="VBoxContainer_acoes" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -523.0
+offset_top = -444.0
+offset_right = -483.0
+offset_bottom = -404.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(13.029186, 11.149186)
+
+[node name="Fogo" type="TouchScreenButton" parent="CanvasLayer/VBoxContainer_acoes"]
+position = Vector2(24.63699, 6.5475645)
+scale = Vector2(0.3653337, 0.42693707)
+texture_normal = ExtResource("3_w2yw3")
+action = "Key_e"
+visibility_mode = 1
+
+[node name="Gelo" type="TouchScreenButton" parent="CanvasLayer/VBoxContainer_acoes"]
+position = Vector2(24.32999, 21.436546)
+scale = Vector2(0.3653337, 0.42693707)
+texture_normal = ExtResource("4_ek21c")
+action = "Key_q"
+visibility_mode = 1
+
+[node name="Escudo" type="TouchScreenButton" parent="CanvasLayer/VBoxContainer_acoes"]
+position = Vector2(11.819617, 12.736358)
+scale = Vector2(0.3653337, 0.42693707)
+texture_normal = ExtResource("5_8vcw7")
+action = "Key_w"
+visibility_mode = 1

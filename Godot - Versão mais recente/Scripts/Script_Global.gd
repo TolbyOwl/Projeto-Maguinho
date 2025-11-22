@@ -6,6 +6,8 @@ var Vida_Escudo = 0
 var Pontos = 0
 var Bats = 0
 var Too_many_bats = false
+var Slimes = 0
+var Too_many_slimes = false
 var nome_jogador;
 var banco_de_dados = "";
 var bd = null
@@ -19,12 +21,19 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_controlar_qtd_morcegos()
+	_controlar_qtd_slimes()
 
 func _controlar_qtd_morcegos():
-	if Bats > 3:
+	if Bats >= 4:
 		Too_many_bats = true
 	else:
 		Too_many_bats = false
+
+func _controlar_qtd_slimes():
+	if Slimes >= 3:
+		Too_many_slimes = true
+	else:
+		Too_many_slimes = false
 
 func salvar_resultado():
 	var sql = "insert into jogador(nome, pontuacao) values('" + str(nome_jogador) + "'," + str(Pontos) + ")"

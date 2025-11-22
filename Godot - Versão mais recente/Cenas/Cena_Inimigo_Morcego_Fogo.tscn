@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cbkwvv7d6a570"]
 
-[ext_resource type="Script" uid="uid://co5w2qmpby5a5" path="res://Scripts/Script_Inimigo_Morcego.gd" id="1_j6lsk"]
+[ext_resource type="Script" uid="uid://co5w2qmpby5a5" path="res://Scripts/Script_Inimigo_Simples.gd" id="1_j6lsk"]
 [ext_resource type="AudioStream" uid="uid://bd5gpfnwn1ihp" path="res://SFX/MorteInimigos.wav" id="2_eebm3"]
 [ext_resource type="Texture2D" uid="uid://d2q3smv8u1qxy" path="res://Personagens e Outros Assets/Inimigos/inimigo_morceguito_Vermelho_Sheet.png" id="3_j6lsk"]
 

@@ -1,41 +1,71 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyllxiengr1fe"]
+[gd_scene load_steps=13 format=3 uid="uid://dyllxiengr1fe"]
 
-[ext_resource type="Script" uid="uid://co5w2qmpby5a5" path="res://Scripts/Script_Inimigo_Morcego.gd" id="1_0d28w"]
-[ext_resource type="Texture2D" uid="uid://bl17se4jk608x" path="res://Personagens e Outros Assets/Inimigos/inimigo_morceguito-Sheet.png" id="2_xrf0y"]
+[ext_resource type="Script" uid="uid://co5w2qmpby5a5" path="res://Scripts/Script_Inimigo_Simples.gd" id="1_0d28w"]
+[ext_resource type="AudioStream" uid="uid://bd5gpfnwn1ihp" path="res://SFX/MorteInimigos.wav" id="2_01n6r"]
+[ext_resource type="Texture2D" uid="uid://f4kuo72hcvwf" path="res://Personagens e Outros Assets/Inimigos/inimigo_slime_base_Attack_Sheet.png" id="3_xrf0y"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v1plj"]
-atlas = ExtResource("2_xrf0y")
+[sub_resource type="CircleShape2D" id="CircleShape2D_6uvag"]
+radius = 2.0377216
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01n6r"]
+atlas = ExtResource("3_xrf0y")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3rxap"]
-atlas = ExtResource("2_xrf0y")
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqmlq"]
+atlas = ExtResource("3_xrf0y")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w6taf"]
-atlas = ExtResource("2_xrf0y")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq7an"]
+atlas = ExtResource("3_xrf0y")
 region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0eph"]
+atlas = ExtResource("3_xrf0y")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bvb3"]
+atlas = ExtResource("3_xrf0y")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwi1d"]
+atlas = ExtResource("3_xrf0y")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlia0"]
+atlas = ExtResource("3_xrf0y")
+region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fediw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v1plj")
+"texture": SubResource("AtlasTexture_01n6r")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3rxap")
+"texture": SubResource("AtlasTexture_gqmlq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w6taf")
+"texture": SubResource("AtlasTexture_hq7an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0eph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bvb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwi1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlia0")
 }],
 "loop": true,
 "name": &"Voar",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6uvag"]
-radius = 2.0377216
-
-[node name="Morcego" type="Node2D"]
+[node name="Slime" type="Node2D" groups=["Fisico", "Inimigo", "Inimigo_Mediano", "inimigo"]]
+position = Vector2(0, -0.99999994)
 scale = Vector2(7.8241663, 7.8241663)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -45,16 +75,30 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_0d28w")
 
+[node name="Morrendo" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("2_01n6r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(5.9604645e-08, -1.4901161e-08)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("CircleShape2D_6uvag")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(0, -1.4901161e-08)
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("CircleShape2D_6uvag")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.17328528, 0.17328528)
 sprite_frames = SubResource("SpriteFrames_fediw")
 animation = &"Voar"
 autoplay = "Voar"
 frame_progress = 0.27033713
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-0.51123655, 0.12780915)
-shape = SubResource("CircleShape2D_6uvag")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
 debug_enabled = true
@@ -63,4 +107,5 @@ debug_enabled = true
 wait_time = 0.1
 autostart = true
 
+[connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_levar_dano"]
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

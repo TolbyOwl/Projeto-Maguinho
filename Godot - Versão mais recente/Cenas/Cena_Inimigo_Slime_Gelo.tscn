@@ -1,0 +1,109 @@
+[gd_scene load_steps=13 format=3 uid="uid://dadglucecm1i0"]
+
+[ext_resource type="Script" uid="uid://co5w2qmpby5a5" path="res://Scripts/Script_Inimigo_Simples.gd" id="1_ttqna"]
+[ext_resource type="AudioStream" uid="uid://bd5gpfnwn1ihp" path="res://SFX/MorteInimigos.wav" id="2_4oubp"]
+[ext_resource type="Texture2D" uid="uid://c4ncgf1sxtggs" path="res://Personagens e Outros Assets/Inimigos/inimigo_slime_Azul_Attack_Sheet.png" id="3_ttqna"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6uvag"]
+radius = 2.0377216
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oubp"]
+atlas = ExtResource("3_ttqna")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i11qe"]
+atlas = ExtResource("3_ttqna")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls4lx"]
+atlas = ExtResource("3_ttqna")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wbig"]
+atlas = ExtResource("3_ttqna")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qs5q"]
+atlas = ExtResource("3_ttqna")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o4n0"]
+atlas = ExtResource("3_ttqna")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2opd"]
+atlas = ExtResource("3_ttqna")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fediw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oubp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i11qe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls4lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wbig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qs5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o4n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2opd")
+}],
+"loop": true,
+"name": &"Voar",
+"speed": 5.0
+}]
+
+[node name="Slime" type="Node2D" groups=["Gelo", "Inimigo", "Inimigo_Fraco", "inimigo"]]
+scale = Vector2(7.8241663, 7.8241663)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_ttqna")
+
+[node name="Morrendo" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("2_4oubp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(5.9604645e-08, 0)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("CircleShape2D_6uvag")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("CircleShape2D_6uvag")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.17328528, 0.17328528)
+sprite_frames = SubResource("SpriteFrames_fediw")
+animation = &"Voar"
+autoplay = "Voar"
+frame_progress = 0.27033713
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_levar_dano"]
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
