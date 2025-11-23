@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bxo3lrg8uq53x"]
+[gd_scene load_steps=29 format=3 uid="uid://bxo3lrg8uq53x"]
 
 [ext_resource type="Texture2D" uid="uid://c10f1qylusntb" path="res://Personagens e Outros Assets/Elementos de tela/barra_de_vida.png" id="1_f8c47"]
 [ext_resource type="Script" uid="uid://ccshq5pln1lre" path="res://Scripts/Script_Barra_Vida.gd" id="1_unr41"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://jimcypxtxhm7" path="res://Personagens e Outros Assets/Elementos de tela/gelo.png" id="4_ek21c"]
 [ext_resource type="Texture2D" uid="uid://dmejx648sn863" path="res://Personagens e Outros Assets/Elementos de tela/escudo.png" id="5_8vcw7"]
 [ext_resource type="Texture2D" uid="uid://hpj8645p22ii" path="res://Personagens e Outros Assets/Maguin/escudo.png" id="7_e5xgc"]
+[ext_resource type="Texture2D" uid="uid://c5t2fn0g41new" path="res://Personagens e Outros Assets/Elementos de tela/pause.png" id="7_m3yfa"]
 [ext_resource type="PackedScene" uid="uid://btf0iccai10qr" path="res://addons/versatile-mobile-joystick/joystick.tscn" id="8_m3yfa"]
 [ext_resource type="Texture2D" uid="uid://b3rjj1bmqtiok" path="res://addons/versatile-mobile-joystick/default_textures/BaseJoystickTest.png" id="9_suuk0"]
 [ext_resource type="Texture2D" uid="uid://dlgmq4q7t23o8" path="res://addons/versatile-mobile-joystick/default_textures/TipJoystickTest.png" id="10_1bktk"]
@@ -254,6 +255,13 @@ tip_limit_circle = SubResource("CircleShape2D_m3yfa")
 touch_detection_region = SubResource("RectangleShape2D_suuk0")
 strength_curve = SubResource("Curve_1bktk")
 is_mobile_only = true
+
+[node name="Fogo" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(1163.0001, 20)
+scale = Vector2(0.04060233, 0.047448784)
+texture_normal = ExtResource("7_m3yfa")
+action = "ui_text_clear_carets_and_selection"
+visibility_mode = 1
 
 [node name="VBoxContainer_acoes" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 3

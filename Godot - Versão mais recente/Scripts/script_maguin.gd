@@ -108,16 +108,16 @@ func _obter_direcao(delta):
 	
 	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
-		marker[1]=-1
+		#marker[1]=-1
 	if Input.is_action_pressed("ui_down"):
 		direction.y += 1
-		marker[1]=1
+		#marker[1]=1
 	if Input.is_action_pressed("ui_left"):
 		direction.x -= 1
-		marker[0]=-1
+		#marker[0]=-1
 	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
-		marker[0]=1
+		#marker[0]=1
 
 	# Normalizar
 	if direction.length() > 0:
@@ -129,24 +129,24 @@ func _invocar_projetil(direction, cena_projetil):
 	if objeto_projetil:
 		get_tree().root.add_child(objeto_projetil)
 		
-		
-		match marker:
-			[0,-1]:
-				objeto_projetil.global_position = $Norte.global_position
-			[1,-1]:
-				objeto_projetil.global_position = $Nordeste.global_position
-			[1,0]:
-				objeto_projetil.global_position = $Leste.global_position
-			[1,1]:
-				objeto_projetil.global_position = $Sudeste.global_position
-			[0,1]:
-				objeto_projetil.global_position = $Sul.global_position
-			[-1,1]:
-				objeto_projetil.global_position = $Sudoeste.global_position
-			[-1,0]:
-				objeto_projetil.global_position = $Oeste.global_position
-			[-1,-1]:
-				objeto_projetil.global_position = $Noroeste.global_position
+		objeto_projetil.global_position = global_position + direction*32.0
+		#match marker:
+			#[0,-1]:
+				#objeto_projetil.global_position = $Norte.global_position
+			#[1,-1]:
+				#objeto_projetil.global_position = $Nordeste.global_position
+			#[1,0]:
+				#objeto_projetil.global_position = $Leste.global_position
+			#[1,1]:
+				#objeto_projetil.global_position = $Sudeste.global_position
+			#[0,1]:
+				#objeto_projetil.global_position = $Sul.global_position
+			#[-1,1]:
+				#objeto_projetil.global_position = $Sudoeste.global_position
+			#[-1,0]:
+				#objeto_projetil.global_position = $Oeste.global_position
+			#[-1,-1]:
+				#objeto_projetil.global_position = $Noroeste.global_position
 
 		
 		var projectile_speed = velocidade_p * direction

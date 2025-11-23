@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.1199996, 1.1199996)
+scale = Vector2(1.2799996, 1.2799996)
 
 [node name="menu" type="Sprite2D" parent="."]
 position = Vector2(577.50006, 323)
