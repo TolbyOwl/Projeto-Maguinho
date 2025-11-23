@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Projeto Maguinho"
-run/main_scene="uid://c0vtyd5epxmid"
+run/main_scene="uid://bs0o1hsjl06og"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -27,8 +27,7 @@ func _verificar_vida():
 		$Morrendo.play()
 		Maguin_Animations.play("Morrendo")
 		vivo = false
-		get_tree().change_scene_to_file("res://Cenas/Cena_Tela_Pontos.tscn")
-		ScriptGlobal.salvar_resultado()
+		$Timer.start(3)
 
 func _processar_movimento():
 	velocity.x =  0
@@ -173,3 +172,8 @@ func _levar_dano(body:Node2D):
 		ScriptGlobal.Vida -= 2
 	elif body.get_parent().is_in_group("Inimigo_Forte"):
 		ScriptGlobal.Vida -= 3
+
+
+func _maguin_expirou() -> void:
+	get_tree().change_scene_to_file("res://Cenas/Cena_Tela_Pontos.tscn")
+	ScriptGlobal.salvar_resultado()

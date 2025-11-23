@@ -78,3 +78,6 @@ func _on_controle_spawn_slime_timeout() -> void:
 	randomize()
 	var slime = [self._invoca_slime, self._invoca_slime_gelo, self._invoca_slime_fogo]
 	slime.pick_random().call()
+
+func _on_audio_stream_player_finished() -> void:
+	$AudioStreamPlayer.play()

@@ -40,12 +40,12 @@ func salvar_resultado():
 	bd.query(sql)
 
 func pegar_dados_ranking():
-	var dados = ""
+	var dados = []
 	var sql   = "select * from jogador"
 	bd.query(sql)
 	var tabela = bd.query_result
 	for linha in tabela:
-		dados += str(linha["nome"]) + " - " + str(linha["pontuacao"]) + "\n"
+		dados.append(str(linha["nome"]) + " - " + str(linha["pontuacao"]))
 	return dados
 
 func iniciar_jogo(nome):

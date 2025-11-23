@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b36c4q2bnte5w"
+path="res://.godot/imported/estrada_barro.aseprite-22d80a6fec4e76cded3d89a41d42326b.res"
+
+[deps]
+
+source_file="res://Mapas/estrada_barro.aseprite"
+dest_files=["res://.godot/imported/estrada_barro.aseprite-22d80a6fec4e76cded3d89a41d42326b.res"]
+
+[params]
+

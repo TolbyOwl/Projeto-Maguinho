@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs0o1hsjl06og"]
+
+[ext_resource type="Texture2D" uid="uid://86u3wx55c5n2" path="res://Personagens e Outros Assets/Elementos de tela/inicio.jpeg" id="1_0fbet"]
+[ext_resource type="Script" uid="uid://bfxjg0okdytb4" path="res://Scripts/iniciar.gd" id="2_62e2m"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1199996, 1.1199996)
+
+[node name="menu" type="Sprite2D" parent="."]
+position = Vector2(577.50006, 323)
+scale = Vector2(0.74934894, 0.62402344)
+texture = ExtResource("1_0fbet")
+
+[node name="iniciar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 424.0
+offset_right = 858.0
+offset_bottom = 545.0
+script = ExtResource("2_62e2m")
+
+[connection signal="pressed" from="iniciar" to="iniciar" method="_on_pressed"]

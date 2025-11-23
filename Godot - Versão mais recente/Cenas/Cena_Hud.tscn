@@ -205,10 +205,10 @@ libraries = {
 
 [node name="Label_Pontos" type="Label" parent="CanvasLayer"]
 z_index = 1
-offset_left = 849.00006
-offset_top = 30.999998
-offset_right = 929.00006
-offset_bottom = 62.0
+offset_left = 911.0
+offset_top = 19.999996
+offset_right = 991.0
+offset_bottom = 51.0
 scale = Vector2(1.4799997, 1.4528624)
 theme_type_variation = &"GraphFrameTitleLabel"
 theme_override_colors/font_color = Color(1, 1, 0, 1)
@@ -217,10 +217,10 @@ text = "Pontos:"
 
 [node name="Pontuacao" type="Label" parent="CanvasLayer"]
 z_index = 1
-offset_left = 983.00006
-offset_top = 30.000002
-offset_right = 1063.0
-offset_bottom = 61.000008
+offset_left = 1045.0
+offset_top = 19.0
+offset_right = 1125.0
+offset_bottom = 50.000008
 scale = Vector2(1.4799997, 1.4528624)
 theme_type_variation = &"GraphFrameTitleLabel"
 theme_override_colors/font_color = Color(1, 1, 0, 1)

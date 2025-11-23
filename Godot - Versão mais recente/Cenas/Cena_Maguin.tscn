@@ -336,6 +336,9 @@ shape = SubResource("CircleShape2D_ftfrc")
 stream = ExtResource("12_apq53")
 volume_db = -15.0
 
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+
 [connection signal="body_entered" from="CharacterBody2D/AnimatedSprite_Layer2/Area2D" to="CharacterBody2D" method="_escudo_danificado"]
 [connection signal="timeout" from="CharacterBody2D/Recarregar_escudo" to="CharacterBody2D" method="_recarregar_escudo"]
 [connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_levar_dano"]
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_maguin_expirou"]
