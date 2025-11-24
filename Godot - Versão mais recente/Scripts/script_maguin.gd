@@ -10,9 +10,11 @@ var tempo_recarga = 4
 @onready var Escudo_Animations = $AnimatedSprite_Layer2
 @onready var Timer_recarga = $Recarregar_escudo
 @onready var Colisao_escudo = $AnimatedSprite_Layer2/Area2D
+var joystick
 var vivo:= true
 
 func _process(delta: float) -> void:
+	joystick = ScriptGlobal.Joystick
 	_verificar_vida()
 	if (vivo):
 		_escudo()
@@ -33,19 +35,23 @@ func _processar_movimento():
 	velocity.x =  0
 	velocity.y =  0
 	
-	if Input.is_action_pressed("ui_left"):
-		velocity.x = -velocidade
-		Maguin_Animations.flip_h=true
-		
-	if Input.is_action_pressed("ui_right"):
-		velocity.x = velocidade
-		Maguin_Animations.flip_h=false
-		
-	if Input.is_action_pressed("ui_up"):
-		velocity.y= -velocidade
-		
-	if Input.is_action_pressed("ui_down"):
-		velocity.y= velocidade
+	if joystick != Vector2.ZERO:
+		print(str(joystick))
+		velocity = joystick * velocidade
+	else:
+		if Input.is_action_pressed("ui_left"):
+			velocity.x = -velocidade
+			Maguin_Animations.flip_h=true
+			
+		if Input.is_action_pressed("ui_right"):
+			velocity.x = velocidade
+			Maguin_Animations.flip_h=false
+			
+		if Input.is_action_pressed("ui_up"):
+			velocity.y= -velocidade
+			
+		if Input.is_action_pressed("ui_down"):
+			velocity.y= velocidade
 
 func _processar_animacao():
 
@@ -65,7 +71,7 @@ func _processar_animacao():
 		velocity.x = 0
 		velocity.y = 0
 	else:
-		if velocity.x == 0:
+		if velocity == Vector2.ZERO:
 			Maguin_Animations.play("Parado")
 			Maguin_Animations.position.x = -3
 		else:
@@ -106,22 +112,25 @@ func _obter_direcao(delta):
 	marker[0]=0
 	marker[1]=0
 	
-	if Input.is_action_pressed("ui_up"):
-		direction.y -= 1
-		#marker[1]=-1
-	if Input.is_action_pressed("ui_down"):
-		direction.y += 1
-		#marker[1]=1
-	if Input.is_action_pressed("ui_left"):
-		direction.x -= 1
-		#marker[0]=-1
-	if Input.is_action_pressed("ui_right"):
-		direction.x += 1
-		#marker[0]=1
-
+	if joystick != Vector2.ZERO:
+		print(str(joystick))
+		direction = joystick
+	else:
+		if Input.is_action_pressed("ui_up"):
+			direction.y -= 1
+			marker[1]=-1
+		if Input.is_action_pressed("ui_down"):
+			direction.y += 1
+			marker[1]=1
+		if Input.is_action_pressed("ui_left"):
+			direction.x -= 1
+			marker[0]=-1
+		if Input.is_action_pressed("ui_right"):
+			direction.x += 1
+			marker[0]=1
 	# Normalizar
-	if direction.length() > 0:
-		direction = direction.normalized()
+		if direction.length() > 0:
+			direction = direction.normalized()
 
 func _invocar_projetil(direction, cena_projetil):
 	var objeto_projetil = cena_projetil.instantiate()

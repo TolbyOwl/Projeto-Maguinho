@@ -18,10 +18,10 @@ script = ExtResource("1_xanfq")
 [node name="CenterContainer" type="CenterContainer" parent="."]
 z_index = 3
 layout_mode = 0
-offset_left = 323.0
-offset_top = 71.0
-offset_right = 734.5
-offset_bottom = 436.0
+offset_left = 394.0
+offset_top = 86.0
+offset_right = 805.5
+offset_bottom = 451.0
 
 [node name="Peixes" type="Sprite2D" parent="CenterContainer"]
 position = Vector2(47, 63.999992)
@@ -114,12 +114,14 @@ theme_override_colors/font_hover_pressed_color = Color(0.9019608, 0.9019608, 0.9
 text = "Sair"
 
 [node name="Coqueiro" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(458.00003, 322)
 scale = Vector2(1.6800001, 1.6800001)
 texture = ExtResource("3_aoogt")
 
 [node name="Coqueiro2" type="Sprite2D" parent="."]
-position = Vector2(687, 324)
+z_index = 1
+position = Vector2(772.00006, 326)
 scale = Vector2(1.6800001, 1.6800001)
 texture = ExtResource("3_aoogt")
 

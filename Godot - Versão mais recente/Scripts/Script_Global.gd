@@ -11,6 +11,7 @@ var Too_many_slimes = false
 var nome_jogador;
 var banco_de_dados = "";
 var bd = null
+var Joystick = Vector2.ZERO
 
 func _ready() -> void:
 	bd = SQLite.new()

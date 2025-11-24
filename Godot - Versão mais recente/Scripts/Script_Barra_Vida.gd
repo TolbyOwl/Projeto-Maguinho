@@ -27,3 +27,7 @@ func _process(delta: float) -> void:
 		$Icone_Escudo.visible = true
 	else:
 		$Icone_Escudo.visible = false
+
+
+func _on_virtual_joystick_analogic_changed(value: Vector2, distance: float, angle: float, angle_clockwise: float, angle_not_clockwise: float) -> void:
+	ScriptGlobal.Joystick = value
