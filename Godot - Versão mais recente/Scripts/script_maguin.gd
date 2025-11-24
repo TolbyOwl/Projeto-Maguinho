@@ -38,6 +38,10 @@ func _processar_movimento():
 	if joystick != Vector2.ZERO:
 		print(str(joystick))
 		velocity = joystick * velocidade
+		if joystick.x < 0:
+			Maguin_Animations.flip_h=true
+		else:
+			Maguin_Animations.flip_h=false
 	else:
 		if Input.is_action_pressed("ui_left"):
 			velocity.x = -velocidade
